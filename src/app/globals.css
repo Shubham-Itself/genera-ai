@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+/* rotate hamburger */
+
+.rotate-hamburger {
+  transform: rotate(180deg) scale(0.9);
+  transition: all 0.3s ease-in-out;
+}
+
+.rotate-hamburger-reverse {
+  transform: rotate(0deg) scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* banner after effect  */
+
+.bannerText::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: 20px;
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url(/assets/heroSection/herosectionAfterLogo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .bannerText::after {
+    right: -55px;
+    top: -31px;
+  }
+}
+
+@font-face {
+  font-family: "CamptonBold";
+  src: url("/Fonts/CamptonBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CamptonBook";
+  src: url("/Fonts/CamptonBook.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CamptonMedium";
+  src: url("/Fonts/CamptonMedium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CamptonSemiBold";
+  src: url("/Fonts/CamptonSemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MetaPlusMedium";
+  src: url("/Fonts/metaplus-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MetaPlus";
+  src: url("/Fonts/MetaPlus.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadPro-Regular";
+  src: url("/Fonts/MyriadPro-Regular 2.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* sidenav animation  */
+
+@keyframes clipCircle {
+  0% {
+    clip-path: circle(0% at 100% 0%);
+  }
+
+  100% {
+    clip-path: circle(100%);
+  }
+}
+
+@keyframes clipCircleReverse {
+  0% {
+    clip-path: circle(100%);
+  }
+
+  100% {
+    clip-path: circle(0% at 100% 0%);
+  }
+}
+
+@keyframes translateSideNav {
+  0% {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes sidenavListTranslate {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes listItemtranslate {
+  0% {
+    transform: translate(195px, 44px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 0;
+  }
+}
+
+@keyframes translateYList {
+  0% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidenavElement {
+  animation: clipCircle 0.6s ease-in-out forwards;
+}
+
+.sidenavElementReverse {
+  animation: clipCircleReverse 0.6s ease-in-out forwards;
+}
+
+.sidenavTransalteAnimation {
+  transform: translateX(100%);
+  animation: translateSideNav 0.6s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+.sidenavListAnimation {
+  animation: sidenavListTranslate 0.6s ease-in-out 0.4s both;
+}
+
+/* .listItems {
+  animation: listItemtranslate 0.6s ease-in-out forwards;
+} */
+
+.sidenavTransalteY {
+  animation: translateYList 0.6s ease-in-out forwards;
+}
+
+/* box animation */
+.boxAnimation {
+  transition: 1s;
+}
+
+.boxAnimation::before,
+.boxAnimation::after {
+  position: absolute;
+  background: #eee;
+  z-index: -1;
+  transition: 1s;
+  content: "";
+}
+
+.boxAnimation::before {
+  height: 50px;
+  width: 130px;
+}
+
+.boxAnimation::after {
+  width: 150px;
+  height: 30px;
+}
+
+.boxAnimation:hover::before {
+  width: 0px;
+  background: #fff;
+}
+
+.boxAnimation:hover::after {
+  height: 0px;
+  background: #fff;
+}
+
+/* checkbox  */
+
+/* From Uiverse.io by PriyanshuGupta28 */
+.input[type="checkbox"] {
+  display: none;
+}
+
+/* Style for the custom checkbox */
+.custom-checkbox {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style for the custom checkmark */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+/* Show the checkmark when checkbox is checked */
+.input[type="checkbox"]:checked + .custom-checkbox::after {
+  opacity: 1;
+}
+
+/* particle effect code */
+
+.particleEffect:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: -10rem;
+  left: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  z-index: 9999;
+  background-image: url(/assets/particle_png/noise.png);
+  opacity: 0.85;
+  pointer-events: none;
+  animation: noise 1s steps(2) infinite;
+}
+
+@keyframes noise {
+  0% {
+    transform: translate3d(0, 9rem, 0);
+  }
+  10% {
+    transform: translate3d(-1rem, -4rem, 0);
+  }
+  20% {
+    transform: translate3d(-8rem, 2rem, 0);
+  }
+  30% {
+    transform: translate3d(9rem, -9rem, 0);
+  }
+  40% {
+    transform: translate3d(-2rem, 7rem, 0);
+  }
+  50% {
+    transform: translate3d(-9rem, -4rem, 0);
+  }
+  60% {
+    transform: translate3d(2rem, 6rem, 0);
+  }
+  70% {
+    transform: translate3d(7rem, -8rem, 0);
+  }
+  80% {
+    transform: translate3d(-9rem, 1rem, 0);
+  }
+  90% {
+    transform: translate3d(6rem, -5rem, 0);
+  }
+  100% {
+    transform: translate3d(-7rem, 0, 0);
+  }
+}
