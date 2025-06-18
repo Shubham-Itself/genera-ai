@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header/Header";
-import Sidenav from "./components/sidenav/Sidenav";
+// import Sidenav from "./components/sidenav/Sidenav";
 import Footer from "./components/footer/Footer";
 import LoaderWrapper from "./LoaderWrapper";
 import { SmoothScrollProvider } from "./smoothScrollProvider/SmoothScrollProvider";
